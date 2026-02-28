@@ -4,13 +4,13 @@ async function sendMessage() {
     const message = input.value;
     if (!message) return;
 
-    chatBox.innerHTML += <p><b>Vous:</b> ${message}</p>;
+    chatBox.innerHTML += `<p><b>Vous:</b> ${message}</p>`;
     input.value = '';
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer sk-or-v1-xxxxxx",
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -21,5 +21,5 @@ async function sendMessage() {
 
     const data = await response.json();
     const aiText = data.choices[0].message.content;
-    chatBox.innerHTML += <p><b>IA:</b> ${aiText}</p>;
+    chatBox.innerHTML += `<p><b>IA:</b> ${aiText}</p>`;
 }
