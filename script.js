@@ -4,7 +4,7 @@ async function sendMessage() {
     const message = input.value;
     if (!message) return;
 
-    chatBox.innerHTML += `<p><b>Vous:</b> ${message}</p>`;
+   chatBox.innerHTML += `<p><b>Vous:</b> ${message}</p>`;
     input.value = '';
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -21,5 +21,5 @@ async function sendMessage() {
 
     const data = await response.json();
     const aiText = data.choices[0].message.content;
-    chatBox.innerHTML += `<p><b>IA:</b> ${aiText}</p>`;
+   chatBox.innerHTML += `<p><b>IA:</b> ${aiText}</p>`;
 }
